@@ -1,0 +1,43 @@
+
+@mixin reset-list {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+}
+
+
+@mixin flex-display ($display, $align-items, $justify-content) { 
+    display: $display;
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+
+//  Center
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin grid-center {
+    display: grid;
+    place-content: center;
+}
+
+@mixin inset-center {
+    inset: 0;
+    position: absolute;
+    margin: auto;
+}
+
+
+
+  // BORDER
+
+  @mixin border($width, $style, $color){
+    border-width: $width;
+    border-style: $style;
+    border-color: $color;
+}
+

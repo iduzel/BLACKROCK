@@ -1,0 +1,397 @@
+// This is where you can import other stylesheets or write your scss code
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "./abstracts";
+@import "./mixins";
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+// GENERAL SETTINGS
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input {
+    all: unset;
+}
+
+ul {
+    @include reset-list;
+}
+
+a {
+   
+    all: unset;
+}
+
+hr {
+    margin: 0;
+    padding: 0;
+}
+button {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+}
+
+
+
+// HEADER
+
+header {
+
+
+
+    //Header-top
+    .header-top ul {
+
+        width: 100%;
+        @include flex-display(flex, center, flex-end);
+
+        li {
+            margin: .4rem 0 .4rem 1rem;
+            font-size: .8rem;
+
+            a {
+                text-decoration: none;
+                color: $light-gray;
+            }
+
+            a:hover {
+                color: $dark-color
+            }
+        }
+    }
+
+    //Header-middle
+
+    .header-middle {
+
+        @include flex-display(flex, center, space-between);
+
+        .logo a {
+            font-size: 2.5rem;
+        }
+
+        .search-box {
+            position: relative;
+
+            input {
+                width: 37rem;
+                height: 2.4rem;
+                border: none;
+                background-color: #f3f3f3;
+                color: $light-gray;
+                font-size: .8rem;
+                border-radius: 5px;
+                padding-left: 1rem;
+                transition: .2s;
+                box-shadow: 1px 1px 3px gray;
+            }
+
+            input:focus {
+                border: 2px solid $primary-color;
+                transition: .1s;
+            }
+
+            a {
+                //search icon
+                position: absolute;
+                right: 12px;
+                top: 4px;
+                font-size: 1.4rem;
+                color: $primary-color;
+            }
+        }
+
+    }
+
+}
+
+// DROPDOWN ANMELDEN
+.sign-in-up {
+    @include flex-display(flex, center, space-between);
+
+    div {
+        margin: .4rem 0 .4rem 3rem;
+    }
+
+    a {
+        color: $dark-color;
+    }
+}
+
+.dropdown {
+    position: relative;
+    display: inline;
+}
+
+.dropbtn {
+    color: $dark-color;
+    background-color: #fff;
+    font-size: .9rem;
+    border: none;
+}
+
+.dropdown-content a {
+    font-size: .9rem;
+}
+
+//ICONS
+
+.einloggen::before {
+    content: "\f007";
+    font-family: "FontAwesome";
+    display: inline-block;
+    margin-right: .3rem;
+    font-size: .9rem;
+}
+
+.favoriten a::before {
+    content: "\f004";
+    font-family: "FontAwesome";
+    display: inline-block;
+    margin-right: .3rem;
+    font-size: .9rem;
+
+}
+
+.warenkorb a::before {
+    content: "\f07a";
+    font-family: "FontAwesome";
+    display: inline-block;
+    margin-right: .3rem;
+    font-size: .9rem;
+}
+
+//HOVER
+
+.einloggen:hover {
+    color: $primary-color;
+}
+
+.favoriten:hover a {
+    color: $primary-color;
+}
+
+.warenkorb:hover a {
+    color: $primary-color;
+}
+
+.dropdown-content {
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    width: 12rem;
+    height: 6rem;
+    @include flex-center;
+    flex-direction: column;
+    position: absolute;
+    left: -6rem;
+    top: 25px;
+    visibility: hidden;
+    transition: all .4s;
+    
+}
+
+.dropdown:hover .dropdown-content {
+    visibility: visible;
+}
+
+.dropdown-content a:nth-child(1):hover {
+    background-color: $primary-color;
+    color: $light-color;
+}
+
+.dropdown-content a:nth-child(2):hover {
+    background-color: $primary-color;
+    color: $light-color;
+}
+
+
+
+
+.dropdown-content a:nth-child(1) {
+    width: 11rem;
+    height: 2rem;
+    color: $dark-color;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    /* background-color: $primary-color; */
+    @include flex-center;
+}
+
+.dropdown-content a:nth-child(2) {
+    width: 11rem;
+    height: 2rem;
+    color: $dark-color;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    @include flex-center;
+    margin-top: .5rem;
+}
+
+//Header-bottom
+
+.header-bottom {
+    position: relative;
+
+    @include flex-display(flex, center, space-between);
+    margin-top: 2rem;
+    margin-bottom: 0;    
+
+       .shipping h6::before {
+        content: "\f48b";
+        font-family: "FontAwesome";
+        display: inline-block;
+        margin-right: .3rem;
+        color: $light-gray;
+    }
+
+}
+
+.damen {
+    margin-right: 2rem;
+}
+
+.damen-category, .herren-category {
+    width: 100%;
+    height: 30rem;  
+    top: 1.7rem;
+    left:0;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    flex-direction: column;
+    position: absolute;
+    visibility: hidden;
+    transition: all .4s;
+}
+
+.damen:hover  .damen-category, .herren:hover .herren-category {
+    background-color: navy;
+   visibility: visible;      
+}
+.damen:hover body {
+    background-color: $light-gray;
+}
+
+.shipping {
+ width:30rem;
+  @include flex-display(flex, center, flex-end);
+
+  a h6 {
+      color:$dark-color;
+  }
+}
+
+
+// MAIN
+
+main {
+  margin-top: 1rem;
+}
+
+.image {
+    transition: all .1s ease-in-out;
+    box-shadow: 2px 2px 5px gray;
+    border-radius: 10px;
+   
+}
+.image:hover{
+    transform: scale(1.01);
+    border: 2px solid $primary-color;  
+    border-radius: 10px; 
+}
+
+
+.image img {
+    max-width: 100%;
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+}
+
+// MARKEN
+
+.marken-hr{
+    margin:1rem 0;
+}
+
+.marken {
+    h2 {
+        @include flex-center;
+        color: $primary-color;
+        text-decoration: underline;
+    }
+    p {
+        font-size: 2rem;
+        @include flex-center;
+        width: 60%;
+        margin:1rem auto;
+        text-align: justify;
+    }
+}
+
+
+.barbons {
+    height: 10rem;
+    border-radius: 5px; 
+   background-color: $marken-bg; 
+   box-shadow: 2px 2px 5px gray; 
+
+   a {
+       display: inline-block;
+       width: 100%;
+       height:100%;
+       @include flex-center;
+
+       img {
+           max-width: 100%;
+           max-height: 100%;
+           
+       }
+   }
+}
+.barbons:hover {
+    border: 2px solid $primary-color;
+    cursor: pointer;
+}
+
+
+//Footer
+
+footer {
+    background-color: $dark-color;
+    color: $light-color;
+
+    .footer-title {
+        padding: 1rem 0;
+        font-size: 1.5rem;
+    }
+    ul li {
+        margin:1rem 0;
+        a {
+            color:$light-color;
+        }
+        
+    }
+
+  ul li:hover {
+      a {
+          color: $primary-color;
+      }
+  }
+
+  .social-media {
+      
+  }
+}
+
+
